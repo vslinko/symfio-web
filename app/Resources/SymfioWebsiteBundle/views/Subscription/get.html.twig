@@ -1,0 +1,49 @@
+{% extends "::base.html.twig" %}
+
+{% form_theme form with _self %}
+
+{% block _form_email_errors %}
+    {% for error in errors %}
+        <small>{{ error.message }}</small>
+    {% endfor %}
+{% endblock %}
+
+{% block content %}
+    <div id="middle">
+        <h1>Symfio</h1>
+
+        <h2>Simple <a href="http://symfony.com" target="_blank">Symfony</a> Application Engine</h2>
+
+        <form action="{{ path("symfio_website_subscription_post") }}" method="post">
+            {% if app.session.flashBag.has('success') %}
+                {{ app.session.flashBag.get('success')[0] }}
+            {% else %}
+            We are working hard for release Symfio soon.<br>
+            If you want to be first who receive invite, please&nbsp;subscribe:<br>
+            {{ form_widget(form.email, {attr: {placeholder: 'email' }}) }}<br>
+            {{ form_errors(form.email) }}
+            <button type="submit">Subscribe</button>
+            {% endif %}
+        </form>
+
+        <script type="text/javascript">
+            var input = document.getElementById('form_email');
+
+            if (!'placeholder' in input) {
+                input.onblur = function () {
+                    if (this.value == '') {
+                        this.value = this.attributes['placeholder'].value;
+                    }
+                };
+
+                input.onblur();
+
+                input.onfocus = function () {
+                    this.value = '';
+                };
+            }
+        </script>
+
+        <p>&copy; 2012 Rithis Studio LLC</p>
+    </div>
+{% endblock %}

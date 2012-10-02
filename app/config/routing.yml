@@ -1,0 +1,3 @@
+_website:
+    resource: @SymfioWebsiteBundle/Controller
+    type: annotation

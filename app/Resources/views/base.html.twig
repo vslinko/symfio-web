@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Symfio</title>
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Cantora+One">
+    <style type="text/css">
+        body {
+            margin: 0;
+            background-image: url("/images/cream_dust.png");
+            font-family: "Cantora One", sans-serif;
+            color: #555;
+        }
+
+        #middle {
+            width: 470px;
+            margin: 50px auto 0;
+        }
+
+        h1, h2, p {
+            text-align: center;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 140px;
+        }
+
+        h2 {
+            margin: 0 0 25px;
+            font-size: 28px;
+            font-weight: normal;
+        }
+
+        p {
+            margin: 40px 0 20px;
+            font-size: 14px;
+        }
+
+        a {
+            color: #4169e1;
+            text-decoration: none;
+        }
+
+        form {
+            padding: 20px;
+            background-color: white;
+            line-height: 1.5;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            -webkit-border-radius: 5px;
+            -moz-border-radius: 5px;
+            box-shadow: 1px 1px 5px lightgray;
+            -webkit-box-shadow: 1px 1px 5px lightgray;
+            -moz-box-shadow: 1px 1px 5px lightgray;
+        }
+
+        input, button {
+            border-radius: 3px;
+            -webkit-border-radius: 3px;
+            -moz-border-radius: 3px;
+        }
+
+        input {
+            width: 100%;
+            margin: 15px 0 0;
+            padding: 10px;
+            border: 1px dashed gray;
+            box-sizing: border-box;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        input:focus {
+            border: 1px solid gray;
+            outline: none;
+            box-shadow: 0 0 3px lightgray inset;
+            -webkit-box-shadow: 0 0 3px lightgray inset;
+            -moz-box-shadow: 0 0 3px lightgray inset;
+        }
+
+        button {
+            width: 100%;
+            margin: 15px 0 0;
+            padding: 10px;
+            background-color: #eee;
+            border: none;
+            box-shadow: 0 0 3px black;
+            -webkit-box-shadow: 0 0 3px black;
+            -moz-box-shadow: 0 0 3px black;
+            text-shadow: 0 1px 1px gray;
+            background-image: linear-gradient(bottom, #cccccc, #eee);
+            background-image: -o-linear-gradient(bottom, #ccc, #eee);
+            background-image: -moz-linear-gradient(bottom, #ccc, #eee);
+            background-image: -webkit-linear-gradient(bottom, #ccc, #eee);
+            background-image: -ms-linear-gradient(bottom, #ccc, #eee);
+            background-image: -webkit-gradient(linear, left bottom, left top, #ccc, #eee);
+        }
+
+        button:active {
+            background: #eee;
+        }
+
+        small {
+            color: firebrick;
+            line-height: 1;
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 100px;
+            }
+
+            h2 {
+                font-size: 20px;
+            }
+
+            #middle {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            form {
+                border-radius: 0;
+                -webkit-border-radius: 0;
+                -moz-border-radius: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+{% block content "" %}
+
+</body>
+</html>

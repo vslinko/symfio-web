@@ -1,0 +1,36 @@
+{
+    "name": "symfio/website",
+    "homepage": "https://github.com/symfio/website",
+    "authors": [
+        {
+            "name": "Vyacheslav Slinko",
+            "email": "vyacheslav.slinko@symf.io",
+            "role": "Founder"
+        }
+    ],
+    "require": {
+        "symfony/symfony": "2.1.*",
+        "symfony/monolog-bundle": "2.1.*",
+        "sensio/framework-extra-bundle": "2.1.*",
+        "doctrine/orm": "2.3.*",
+        "doctrine/doctrine-bundle": "1.0.*",
+        "rithis/composer-handler": "2.1.*"
+    },
+    "autoload": {
+        "psr-0": {
+            "Symfio": "src"
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Rithis\\Composer\\ScriptHandler::touchParameters",
+            "Rithis\\Composer\\ScriptHandler::clearCache",
+            "Rithis\\Composer\\ScriptHandler::installAssets"
+        ],
+        "post-update-cmd": [
+            "Rithis\\Composer\\ScriptHandler::touchParameters",
+            "Rithis\\Composer\\ScriptHandler::clearCache",
+            "Rithis\\Composer\\ScriptHandler::installAssets"
+        ]
+    }
+}

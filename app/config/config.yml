@@ -1,0 +1,21 @@
+imports:
+    - { resource: parameters.dist.yml }
+    - { resource: parameters.yml }
+
+framework:
+    secret: %secret%
+    router: { resource: %kernel.root_dir%/config/routing.yml }
+    templating: { engines: [twig] }
+    form: ~
+    validation: { enable_annotations: true }
+    session: ~
+
+doctrine:
+    dbal:
+        driver: pdo_mysql
+        host: %database_host%
+        dbname: %database_name%
+        user: %database_user%
+        password: %database_password%
+    orm:
+        auto_mapping: true
