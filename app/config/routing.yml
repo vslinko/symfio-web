@@ -1,3 +1,6 @@
+_security:
+    resource: routing_security.yml
+
 _website:
     resource: @SymfioWebsiteBundle/Controller
     type: annotation

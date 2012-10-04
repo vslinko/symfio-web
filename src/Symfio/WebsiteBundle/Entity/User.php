@@ -2,26 +2,23 @@
 
 namespace Symfio\WebsiteBundle\Entity;
 
+use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
-use Symfony\Component\Validator\Constraints as Assert;
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
  * @ORM\Table(name="users")
- * @UniqueEntity(fields="username", message="Congrats, you're username already exists!")
  */
-class User
+class User implements UserInterface
 {
     /**
      * @ORM\Id
-     * @ORM\Column(type="string")
-     * @Assert\NotBlank(message="We need to know your username")
+     * @ORM\Column
      */
     protected $username;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\Column(length=40)
      */
     protected $token;
 
@@ -43,5 +40,24 @@ class User
     public function getToken()
     {
         return $this->token;
+    }
+
+    public function getPassword()
+    {
+        return null;
+    }
+
+    public function getSalt()
+    {
+        return null;
+    }
+
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    public function eraseCredentials()
+    {
     }
 }

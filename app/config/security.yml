@@ -1,8 +1,7 @@
 security:
     providers:
-        in_memory:
-            memory:
-                users: ~
+        main:
+            entity: { class: Symfio\WebsiteBundle\Entity\User, property: username }
 
     firewalls:
         secured_area:
@@ -10,9 +9,9 @@ security:
             anonymous: ~
             oauth:
                 resource_owners:
-                    github:           "/login/check-github"
-                login_path:        /
-                failure_path:      /
+                    github: "/login/check-github"
+                login_path: /login
+                failure_path: /login
                 oauth_user_provider:
-                    oauth: ~
-
+                    service: symfio.website.user.provider
+            logout: ~
