@@ -29,6 +29,12 @@ class Provider implements OAuthAwareUserProviderInterface
             $this->em->flush();
         }
 
+        if ($user->getToken() != $response->getAccessToken()) {
+            $user->setToken($response->getAccessToken());
+
+            $this->em->flush();
+        }
+
         return $user;
     }
 }
