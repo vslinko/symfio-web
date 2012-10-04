@@ -8,6 +8,7 @@ use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\Entity
+ * @ORM\Table("subscriptions")
  * @UniqueEntity(fields="email", message="Congrats, you're already subscribed!")
  */
 class Subscription
