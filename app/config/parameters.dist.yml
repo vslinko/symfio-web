@@ -1,2 +1,11 @@
 parameters:
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    database_driver: pdo_mysql
+    database_host: localhost
+    database_name: symfio
+    database_user: root
+    database_password: ~
+
+    github_client_id: ~
+    github_client_secret: ~

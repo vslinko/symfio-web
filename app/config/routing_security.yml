@@ -1,0 +1,15 @@
+_login:
+    pattern: /login
+    defaults:
+        _controller: FrameworkBundle:Template:template
+        template: "::login.html.twig"
+
+_hwi_oauth_redirect:
+    resource: "@HWIOAuthBundle/Resources/config/routing/redirect.xml"
+    prefix: /connect
+
+_callback:
+    pattern: /login/check-github
+
+logout:
+    pattern: /logout

@@ -1,6 +1,7 @@
 imports:
     - { resource: parameters.dist.yml }
     - { resource: parameters.yml }
+    - { resource: security.yml }
 
 framework:
     secret: %secret%
@@ -12,10 +13,19 @@ framework:
 
 doctrine:
     dbal:
-        driver: pdo_mysql
+        driver: %database_driver%
         host: %database_host%
         dbname: %database_name%
         user: %database_user%
         password: %database_password%
     orm:
         auto_mapping: true
+
+hwi_oauth:
+    firewall_name: secured_area
+    resource_owners:
+        github:
+            type: github
+            client_id: %github_client_id%
+            client_secret: %github_client_secret%
+            scope: repo

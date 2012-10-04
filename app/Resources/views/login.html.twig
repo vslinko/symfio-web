@@ -1,0 +1,13 @@
+{% extends "::base.html.twig" %}
+
+{% block content %}
+    <div id="middle">
+
+        {% if app.user %}
+            <div>Hello {{ app.user.username }}, <a href="{{ path("logout") }}">logout</a></div>
+        {% else %}
+            <a href="{{ path("hwi_oauth_service_redirect", {service: "github"}) }}">Login via GitHub</a>
+        {% endif %}
+
+    </div>
+{% endblock %}

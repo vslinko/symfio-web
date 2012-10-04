@@ -1,0 +1,17 @@
+security:
+    providers:
+        main:
+            entity: { class: Symfio\WebsiteBundle\Entity\User, property: username }
+
+    firewalls:
+        secured_area:
+            pattern: ^
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    github: "/login/check-github"
+                login_path: /login
+                failure_path: /login
+                oauth_user_provider:
+                    service: symfio.website.user.provider
+            logout: ~
