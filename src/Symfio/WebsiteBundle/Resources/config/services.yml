@@ -1,0 +1,5 @@
+services:
+    symfio.website.user.provider:
+        class: Symfio\WebsiteBundle\User\Provider
+        arguments:
+            - @doctrine.orm.entity_manager
