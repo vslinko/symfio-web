@@ -1,0 +1,18 @@
+security:
+    providers:
+        in_memory:
+            memory:
+                users: ~
+
+    firewalls:
+        secured_area:
+            pattern: ^
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    github:           "/login/check-github"
+                login_path:        /
+                failure_path:      /
+                oauth_user_provider:
+                    oauth: ~
+

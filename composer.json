@@ -14,7 +14,8 @@
         "sensio/framework-extra-bundle": "2.1.*",
         "doctrine/orm": "2.3.*",
         "doctrine/doctrine-bundle": "1.0.*",
-        "rithis/composer-handler": "2.1.*"
+        "rithis/composer-handler": "2.1.*",
+        "hwi/oauth-bundle": "@dev"
     },
     "autoload": {
         "psr-0": {
