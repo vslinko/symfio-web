@@ -19,7 +19,13 @@ doctrine:
         user: %database_user%
         password: %database_password%
     orm:
-        auto_mapping: true
+        entity_managers:
+            default:
+                auto_mapping: true
+                filters:
+                    softdeleteable:
+                        class: Gedmo\SoftDeleteable\Filter\SoftDeleteableFilter
+                        enabled: true
 
 hwi_oauth:
     firewall_name: secured_area
@@ -29,3 +35,9 @@ hwi_oauth:
             client_id: %github_client_id%
             client_secret: %github_client_secret%
             scope: repo
+
+stof_doctrine_extensions:
+    orm:
+        default:
+            timestampable: true
+            softdeleteable: true

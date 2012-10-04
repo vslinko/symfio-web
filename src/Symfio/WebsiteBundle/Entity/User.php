@@ -4,6 +4,7 @@ namespace Symfio\WebsiteBundle\Entity;
 
 use Symfony\Component\Security\Core\User\UserInterface;
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * @ORM\Entity
@@ -21,6 +22,16 @@ class User implements UserInterface
      * @ORM\Column(length=40)
      */
     protected $token;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Project", mappedBy="user")
+     */
+    protected $projects;
+
+    public function __construct()
+    {
+        $this->projects = new ArrayCollection();
+    }
 
     public function setUsername($username)
     {
@@ -59,5 +70,20 @@ class User implements UserInterface
 
     public function eraseCredentials()
     {
+    }
+
+    public function addProject(Project $project)
+    {
+        $this->projects[] = $project;
+    }
+
+    public function removeProject(Project $project)
+    {
+        $this->projects->remove($project);
+    }
+
+    public function getProjects()
+    {
+        return $this->projects;
     }
 }

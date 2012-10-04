@@ -1,5 +1,5 @@
 {
-    "hash": "020cc52c99dd11121d95faf387d19b56",
+    "hash": "eb149822ad6d6557978292be472d4b4f",
     "packages": [
         {
             "name": "doctrine/common",
@@ -18,7 +18,7 @@
             "require": {
                 "php": ">=5.3.2"
             },
-            "time": "2012-09-19 21:55:18",
+            "time": "2012-09-20 05:55:18",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -88,7 +88,7 @@
                 "php": ">=5.3.2",
                 "doctrine/common": "2.3.*"
             },
-            "time": "2012-09-19 21:56:37",
+            "time": "2012-09-20 05:56:37",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -162,7 +162,7 @@
             "suggest": {
                 "doctrine/orm": "The Doctrine ORM integration is optional in the bundle."
             },
-            "time": "2012-09-07 13:18:21",
+            "time": "2012-09-07 21:18:21",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -224,7 +224,7 @@
             "suggest": {
                 "symfony/yaml": "If you want to use YAML Metadata Mapping Driver"
             },
-            "time": "2012-09-19 22:03:34",
+            "time": "2012-09-20 06:03:34",
             "bin": [
                 "bin/doctrine",
                 "bin/doctrine.php"
@@ -269,6 +269,66 @@
             "keywords": [
                 "database",
                 "orm"
+            ]
+        },
+        {
+            "name": "gedmo/doctrine-extensions",
+            "version": "v2.3.2",
+            "source": {
+                "type": "git",
+                "url": "git://github.com/l3pp4rd/DoctrineExtensions.git",
+                "reference": "v2.3.2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/l3pp4rd/DoctrineExtensions/zipball/v2.3.2",
+                "reference": "v2.3.2",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "doctrine/common": ">=2.1,<2.4-dev"
+            },
+            "suggest": {
+                "doctrine/orm": ">=2.1",
+                "doctrine/mongodb-odm": "*"
+            },
+            "time": "2012-07-13 22:26:40",
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.3.x-dev"
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-0": {
+                    "Gedmo": "lib/"
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Gediminas Morkevicius",
+                    "email": "gediminas.morkevicius@gmail"
+                }
+            ],
+            "description": "Doctrine2 behavioral extensions",
+            "homepage": "http://gediminasm.org/",
+            "keywords": [
+                "tree",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "sluggable",
+                "loggable",
+                "translatable",
+                "nestedset",
+                "sortable",
+                "timestampable"
             ]
         },
         {
@@ -417,7 +477,7 @@
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-mongo": "Allow sending log messages to a MongoDB server"
             },
-            "time": "2012-08-29 03:53:20",
+            "time": "2012-08-29 11:53:20",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -466,7 +526,7 @@
             "require": {
                 "sensio/distribution-bundle": "2.1.*@stable"
             },
-            "time": "2012-09-19 02:05:00",
+            "time": "2012-09-19 10:05:00",
             "type": "library",
             "installation-source": "dist",
             "autoload": {
@@ -504,7 +564,7 @@
             "require": {
                 "symfony/framework-bundle": "2.1.*"
             },
-            "time": "2012-09-10 21:10:08",
+            "time": "2012-09-11 05:10:08",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -551,7 +611,7 @@
                 "symfony/framework-bundle": "2.1.*",
                 "doctrine/common": ">=2.1,<2.4-dev"
             },
-            "time": "2012-08-29 02:02:19",
+            "time": "2012-08-29 10:02:19",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -580,6 +640,68 @@
             ]
         },
         {
+            "name": "stof/doctrine-extensions-bundle",
+            "version": "dev-master",
+            "target-dir": "Stof/DoctrineExtensionsBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/stof/StofDoctrineExtensionsBundle",
+                "reference": "773b37310ca244570032541be3c8ab27b814a83f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/stof/StofDoctrineExtensionsBundle/zipball/773b37310ca244570032541be3c8ab27b814a83f",
+                "reference": "773b37310ca244570032541be3c8ab27b814a83f",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2",
+                "symfony/framework-bundle": "2.1.*",
+                "gedmo/doctrine-extensions": ">=2.3-dev"
+            },
+            "suggest": {
+                "doctrine/doctrine-bundle": "*",
+                "doctrine/mongodb-odm-bundle": "2.1.*"
+            },
+            "time": "1349111035",
+            "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1.x-dev"
+                }
+            },
+            "installation-source": "source",
+            "autoload": {
+                "psr-0": {
+                    "Stof\\DoctrineExtensionsBundle": ""
+                }
+            },
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Christophe Coevoet",
+                    "email": "stof@notk.org"
+                }
+            ],
+            "description": "Integration of the gedmo/doctrine-extensions with Symfony2",
+            "homepage": "https://github.com/stof/StofDoctrineExtensionsBundle",
+            "keywords": [
+                "tree",
+                "behaviors",
+                "doctrine2",
+                "extensions",
+                "gedmo",
+                "sluggable",
+                "loggable",
+                "translatable",
+                "nestedset",
+                "sortable",
+                "timestampable"
+            ]
+        },
+        {
             "name": "symfony/monolog-bundle",
             "version": "v2.1.0",
             "target-dir": "Symfony/Bundle/MonologBundle",
@@ -605,7 +727,7 @@
                 "symfony/yaml": "2.1.*",
                 "symfony/config": "2.1.*"
             },
-            "time": "2012-08-21 06:05:54",
+            "time": "2012-08-21 14:05:54",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -694,7 +816,7 @@
                 "propel/propel1": "dev-master",
                 "monolog/monolog": "dev-master"
             },
-            "time": "2012-09-19 23:13:00",
+            "time": "2012-09-20 07:13:00",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -744,7 +866,7 @@
             "require": {
                 "php": ">=5.2.4"
             },
-            "time": "2012-09-28 12:11:39",
+            "time": "2012-09-28 20:11:39",
             "type": "library",
             "extra": {
                 "branch-alias": {
@@ -783,6 +905,7 @@
     ],
     "minimum-stability": "stable",
     "stability-flags": {
-        "hwi/oauth-bundle": 20
+        "hwi/oauth-bundle": 20,
+        "stof/doctrine-extensions-bundle": 20
     }
 }
