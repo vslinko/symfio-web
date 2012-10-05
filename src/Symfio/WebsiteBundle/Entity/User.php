@@ -21,6 +21,11 @@ class User implements UserInterface
     /**
      * @ORM\Column(length=40)
      */
+    protected $githubToken;
+
+    /**
+     * @ORM\Column(length=32)
+     */
     protected $token;
 
     /**
@@ -43,6 +48,16 @@ class User implements UserInterface
         return $this->username;
     }
 
+    public function setGithubToken($token)
+    {
+        $this->githubToken = $token;
+    }
+
+    public function getGithubToken()
+    {
+        return $this->githubToken;
+    }
+
     public function setToken($token)
     {
         $this->token = $token;
@@ -55,7 +70,7 @@ class User implements UserInterface
 
     public function getPassword()
     {
-        return null;
+        return $this->token;
     }
 
     public function getSalt()
@@ -85,5 +100,10 @@ class User implements UserInterface
     public function getProjects()
     {
         return $this->projects;
+    }
+
+    public function regenerateToken()
+    {
+        $this->token = md5(mt_rand());
     }
 }

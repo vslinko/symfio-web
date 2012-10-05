@@ -23,14 +23,15 @@ class Provider implements OAuthAwareUserProviderInterface
         if (!$user) {
             $user = new User();
             $user->setUsername($response->getNickname());
-            $user->setToken($response->getAccessToken());
+            $user->setGithubToken($response->getAccessToken());
+            $user->regenerateToken();
 
             $this->em->persist($user);
             $this->em->flush();
         }
 
-        if ($user->getToken() != $response->getAccessToken()) {
-            $user->setToken($response->getAccessToken());
+        if ($user->getGithubToken() != $response->getAccessToken()) {
+            $user->setGithubToken($response->getAccessToken());
 
             $this->em->flush();
         }

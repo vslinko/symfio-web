@@ -4,6 +4,12 @@ security:
             entity: { class: Symfio\WebsiteBundle\Entity\User, property: username }
 
     firewalls:
+        api_area:
+            pattern: ^/api
+            anonymous: ~
+            http_basic:
+                realm: "Symfio API"
+
         secured_area:
             pattern: ^
             anonymous: ~
@@ -15,3 +21,6 @@ security:
                 oauth_user_provider:
                     service: symfio.website.user.provider
             logout: ~
+
+    encoders:
+        Symfio\WebsiteBundle\Entity\User: plaintext

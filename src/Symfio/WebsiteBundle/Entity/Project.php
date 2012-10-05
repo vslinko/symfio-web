@@ -7,24 +7,35 @@ use Symfony\Component\Validator\Constraints as Assert;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 use Doctrine\Common\Collections\ArrayCollection;
+use JMS\SerializerBundle\Annotation as Serializer;
+use Symfio\WebsiteBundle\Validator\Constraints\GitHubRepositoryAvailable;
 
 /**
  * @ORM\Entity
  * @ORM\Table("projects")
+ * @Serializer\ExclusionPolicy("ALL")
+ * @UniqueEntity(fields={"owner", "repo"}, message="Project already exists")
+ * @GitHubRepositoryAvailable
  */
 class Project
 {
     /**
      * @ORM\Id
      * @ORM\Column
+     * @Assert\NotBlank(message="You must provide repository owner")
+     * @Assert\Regex(pattern="/^[-A-Za-z]+$/", message="Repository owner contains invalid symbols")
+     * @Serializer\Expose
      */
     protected $owner;
 
     /**
      * @ORM\Id
      * @ORM\Column
+     * @Assert\NotBlank(message="You must provide repository name")
+     * @Assert\Regex(pattern="/^[-A-Za-z]+$/", message="Repository name contains invalid symbols")
+     * @Serializer\Expose
      */
-    protected $name;
+    protected $repo;
 
     /**
      * When we start bill account
@@ -41,15 +52,19 @@ class Project
 
     /**
      * @ORM\OneToMany(targetEntity="Instance", mappedBy="project")
+     * @Serializer\Expose
      */
     protected $instances;
 
-    public function __construct(User $user, $owner, $name)
+    public function __construct(User $user)
     {
         $this->user = $user;
-        $this->owner = $owner;
-        $this->repository = $name;
         $this->instances = new ArrayCollection();
+    }
+
+    public function setOwner($owner)
+    {
+        $this->owner = $owner;
     }
 
     public function getOwner()
@@ -57,9 +72,14 @@ class Project
         return $this->owner;
     }
 
-    public function getName()
+    public function setRepo($repo)
     {
-        return $this->repository;
+        $this->repo = $repo;
+    }
+
+    public function getRepo()
+    {
+        return $this->repo;
     }
 
     public function setFirstInstanceCreatedAt(DateTime $firstInstanceCreatedAt)

@@ -4,7 +4,7 @@
     <div id="middle">
 
         {% if app.user %}
-            <div>Hello {{ app.user.username }}, <a href="{{ path("logout") }}">logout</a></div>
+            <div>Hello {{ app.user.username }}, your token is {{ app.user.token }} <a href="{{ path("logout") }}">logout</a></div>
         {% else %}
             <a href="{{ path("hwi_oauth_service_redirect", {service: "github"}) }}">Login via GitHub</a>
         {% endif %}

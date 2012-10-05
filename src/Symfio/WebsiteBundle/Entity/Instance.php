@@ -4,11 +4,13 @@ namespace Symfio\WebsiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
+use JMS\SerializerBundle\Annotation as Serializer;
 
 /**
  * @ORM\Entity
  * @ORM\Table("instances", indexes={@ORM\Index(columns={"created_at", "deleted_at"})})
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
+ * @Serializer\ExclusionPolicy("ALL")
  */
 class Instance
 {
@@ -37,6 +39,7 @@ class Instance
     /**
      * @ORM\Column(name="created_at", type="datetime")
      * @Gedmo\Timestampable(on="create")
+     * @Serializer\Expose
      */
     protected $createdAt;
 
@@ -49,7 +52,7 @@ class Instance
      * @ORM\ManyToOne(targetEntity="Project", inversedBy="instances")
      * @ORM\JoinColumns({
      *     @ORM\JoinColumn(name="project_owner", referencedColumnName="owner", nullable=false),
-     *     @ORM\JoinColumn(name="project_name", referencedColumnName="name", nullable=false),
+     *     @ORM\JoinColumn(name="project_repo", referencedColumnName="repo", nullable=false),
      * })
      */
     protected $project;

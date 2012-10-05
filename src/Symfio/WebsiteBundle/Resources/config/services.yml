@@ -3,3 +3,29 @@ services:
         class: Symfio\WebsiteBundle\User\Provider
         arguments:
             - @doctrine.orm.entity_manager
+
+    symfio.website.github.client:
+        class: Github\Client
+        factory_class: Symfio\WebsiteBundle\GitHub\ClientFactory
+        factory_method: factory
+        arguments:
+            - @security.context
+
+    symfio.website.github.api.repo:
+        class: Github\Api\Repo
+        factory_service: symfio.website.github.client
+        factory_method: api
+        arguments: [repo]
+
+    symfio.website.validator.github_repository_available:
+        class: Symfio\WebsiteBundle\Validator\Constraints\GitHubRepositoryAvailableValidator
+        arguments:
+            - @symfio.website.github.api.repo
+        tags:
+            - { name: validator.constraint_validator, alias: github_repository_available }
+
+    symfio.website.rest_listener:
+        class: Symfio\WebsiteBundle\EventListener\RestListener
+        tags:
+            - { name: kernel.event_listener, event: kernel.request, method: onKernelRequest }
+            - { name: kernel.event_listener, event: kernel.exception, method: onKernelException }
