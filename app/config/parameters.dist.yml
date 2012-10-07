@@ -9,3 +9,6 @@ parameters:
 
     github_client_id: ~
     github_client_secret: ~
+
+    aws_key: ~
+    aws_secret: ~

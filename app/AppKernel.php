@@ -22,6 +22,7 @@ class AppKernel extends Kernel
             new JMS\SerializerBundle\JMSSerializerBundle($this),
 
             new Symfio\WebsiteBundle\SymfioWebsiteBundle(),
+            new Symfio\CloudBundle\SymfioCloudBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

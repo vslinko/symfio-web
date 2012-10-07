@@ -5,6 +5,7 @@ namespace Symfio\WebsiteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 use Gedmo\Mapping\Annotation as Gedmo;
 use JMS\SerializerBundle\Annotation as Serializer;
+use Symfio\CloudBundle\Cloud\CloudInstanceInterface;
 
 /**
  * @ORM\Entity
@@ -12,7 +13,7 @@ use JMS\SerializerBundle\Annotation as Serializer;
  * @Gedmo\SoftDeleteable(fieldName="deletedAt")
  * @Serializer\ExclusionPolicy("ALL")
  */
-class Instance
+class Instance implements CloudInstanceInterface
 {
     /**
      * @ORM\Id
@@ -27,7 +28,7 @@ class Instance
     protected $ipAddress;
 
     /**
-     * @ORM\Column(name="cloud_name", length=3)
+     * @ORM\Column(name="cloud_name")
      */
     protected $cloudName;
 

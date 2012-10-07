@@ -1,0 +1,11 @@
+services:
+    symfio.cloud.manager:
+        class: Symfio\CloudBundle\Cloud\Manager
+
+    symfio.cloud.amazon.image_factory:
+        class: Symfio\CloudBundle\Amazon\ImageFactory
+
+    symfio.cloud.amazon:
+        class: Symfio\CloudBundle\Amazon\Amazon
+        tags:
+            - { name: symfio.cloud }

@@ -1,6 +1,56 @@
 {
-    "hash": "4b4ae0633e7ad136e68020d9bfad93f4",
+    "hash": "fd297cb7692f115aaa98d1076c365acb",
     "packages": [
+        {
+            "name": "amazonwebservices/aws-sdk-for-php",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/amazonwebservices/aws-sdk-for-php.git",
+                "reference": "1.5.15"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://github.com/amazonwebservices/aws-sdk-for-php/zipball/1.5.15",
+                "reference": "1.5.15",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.2.0"
+            },
+            "time": "1348703818",
+            "type": "library",
+            "installation-source": "source",
+            "autoload": {
+                "classmap": [
+                    "authentication/",
+                    "extensions/",
+                    "lib/",
+                    "services/",
+                    "utilities/",
+                    "sdk.class.php"
+                ]
+            },
+            "license": [
+                "Apache-2.0"
+            ],
+            "authors": [
+                {
+                    "name": "Amazon Web Services",
+                    "homepage": "http://aws.amazon.com"
+                }
+            ],
+            "description": "AWS SDK for PHP",
+            "homepage": "http://aws.amazon.com/sdkforphp/",
+            "keywords": [
+                "amazon",
+                "s3",
+                "sdk",
+                "aws",
+                "dynamodb",
+                "ec2"
+            ]
+        },
         {
             "name": "doctrine/common",
             "version": "2.3.0",
@@ -1034,7 +1084,6 @@
                 "doctrine/doctrine-bundle": "*",
                 "doctrine/mongodb-odm-bundle": "2.1.*"
             },
-            "time": "1349111035",
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
@@ -1070,7 +1119,8 @@
                 "nestedset",
                 "sortable",
                 "timestampable"
-            ]
+            ],
+            "time": "1349111035"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -1277,6 +1327,7 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "hwi/oauth-bundle": 20,
-        "stof/doctrine-extensions-bundle": 20
+        "stof/doctrine-extensions-bundle": 20,
+        "amazonwebservices/aws-sdk-for-php": 20
     }
 }

@@ -41,3 +41,12 @@ stof_doctrine_extensions:
         default:
             timestampable: true
             softdeleteable: true
+
+symfio_cloud:
+    amazon:
+        credentials:
+            key:                        %aws_key%
+            secret:                     %aws_secret%
+        images:
+            web:
+                id: ami-a29943cb

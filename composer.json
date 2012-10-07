@@ -19,6 +19,7 @@
         "jms/security-extra-bundle": "*",
         "jms/serializer-bundle": "*",
         "knplabs/github-api": "*",
+        "amazonwebservices/aws-sdk-for-php": "@dev",
         "rithis/composer-handler": "2.1.*"
     },
     "autoload": {
