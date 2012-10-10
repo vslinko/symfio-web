@@ -2,24 +2,23 @@
 
 namespace Symfio\CloudBundle\Cloud;
 
-use Symfio\WebsiteBundle\Entity\Project;
 use Symfio\WebsiteBundle\Entity\Instance;
 
 interface CloudInterface
 {
     public function getName();
 
-    public function create(Project $project, $type, $amount = 1);
+    public function create($type, $amount = 1);
 
-    public function terminate(Project $project, $amount = 1);
+    public function terminate(CloudInstanceInterface $instance);
 
-    public function scale(Project $project, $amount = 1);
+    public function scale($amount = 1);
 
     public function getImageByType($type);
 
-    public function createInstance(Project $project, CloudImageInterface $image);
+    public function createInstance(CloudImageInterface $image);
 
-    public function createInstances(Project $project, CloudImageInterface $image, $amount);
+    public function createInstances(CloudImageInterface $image, $amount);
 
     public function canCreateMultipleInstances();
 

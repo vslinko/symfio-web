@@ -1,11 +1,12 @@
 services:
     symfio.cloud.manager:
-        class: Symfio\CloudBundle\Cloud\Manager
+        class: Symfio\CloudBundle\Cloud\CloudManager
 
     symfio.cloud.amazon.image_factory:
         class: Symfio\CloudBundle\Amazon\ImageFactory
 
     symfio.cloud.amazon:
         class: Symfio\CloudBundle\Amazon\Amazon
+        private: true
         tags:
             - { name: symfio.cloud }

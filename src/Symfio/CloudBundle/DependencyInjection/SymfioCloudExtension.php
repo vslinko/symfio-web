@@ -23,6 +23,11 @@ class SymfioCloudExtension extends Extension
 
         $container->getDefinition('symfio.cloud.amazon')
             ->addArgument($config['amazon']['credentials'])
-            ->addArgument($container->getDefinition('symfio.cloud.amazon.image_factory'));
+            ->addArgument($container->getDefinition('symfio.cloud.amazon.image_factory'))
+        ;
+
+        $container->getDefinition('symfio.cloud.manager')
+            ->addArgument($config['default'])
+        ;
     }
 }

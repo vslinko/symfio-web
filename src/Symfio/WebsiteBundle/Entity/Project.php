@@ -99,12 +99,13 @@ class Project
 
     public function addInstance(Instance $instance)
     {
+        $instance->setProject($this);
         $this->instances[] = $instance;
     }
 
     public function removeInstance(Instance $instance)
     {
-        $this->instances->remove($instance);
+        $this->instances->removeElement($instance);
     }
 
     public function getInstances()

@@ -27,6 +27,7 @@ class Configuration implements ConfigurationInterface
 
         $rootNode
             ->children()
+            ->scalarNode('default')->defaultValue('amazon')->end()
             ->arrayNode('amazon')
                 ->addDefaultsIfNotSet()
                 ->children()

@@ -7,7 +7,6 @@ use Symfio\CloudBundle\Cloud\CloudImageInterface;
 use Symfio\CloudBundle\Cloud\Exception\CreateInstanceException;
 use Symfio\CloudBundle\Cloud\Exception\TerminateInstanceException;
 use Symfio\WebsiteBundle\Entity\Instance;
-use Symfio\WebsiteBundle\Entity\Project;
 
 class Amazon extends AbstractCloud
 {
@@ -35,14 +34,14 @@ class Amazon extends AbstractCloud
         return true;
     }
 
-    public function createInstance(Project $project, CloudImageInterface $image)
+    public function createInstance(CloudImageInterface $image)
     {
-        $instances = $this->createInstances($project, $image);
+        $instances = $this->createInstances($image);
 
         return $instances[0];
     }
 
-    public function createInstances(Project $project, CloudImageInterface $image, $amount = 1)
+    public function createInstances(CloudImageInterface $image, $amount = 1)
     {
         $response = $this->ec2->run_instances($image->getId(), $amount, $amount, $image->getOptions());
 
@@ -55,7 +54,7 @@ class Amazon extends AbstractCloud
             $response->body->instancesSet->item : array($response->body->instancesSet->item);
 
         foreach ($instancesSet as $item) {
-            $instance = new Instance($project, $this->getName(), (string) $item->instanceId);
+            $instance = new Instance($this->getName(), (string) $item->instanceId);
             $instances[] = $instance;
         }
 

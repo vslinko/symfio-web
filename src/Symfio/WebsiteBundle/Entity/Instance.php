@@ -58,9 +58,8 @@ class Instance implements CloudInstanceInterface
      */
     protected $project;
 
-    public function __construct(Project $project, $cloudName, $cloudId)
+    public function __construct($cloudName, $cloudId)
     {
-        $this->project = $project;
         $this->cloudName = $cloudName;
         $this->cloudInstanceId = $cloudId;
     }
@@ -98,6 +97,11 @@ class Instance implements CloudInstanceInterface
     public function getDeletedAt()
     {
         return $this->deletedAt;
+    }
+
+    public function setProject(Project $project)
+    {
+        $this->project = $project;
     }
 
     public function getProject()

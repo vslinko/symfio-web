@@ -6,7 +6,7 @@ use Symfio\WebsiteBundle\Entity\Project;
 
 abstract class AbstractCloud implements CloudInterface
 {
-    public function create(Project $project, $type, $amount = 1)
+    public function create($type, $amount = 1)
     {
         $image = $this->getImageByType($type);
 
@@ -15,42 +15,23 @@ abstract class AbstractCloud implements CloudInterface
         }
 
         if ($this->canCreateMultipleInstances()) {
-            $instances = $this->createInstances($project, $image, $amount);
+            $instances = $this->createInstances($image, $amount);
         } else {
             $instances = array();
             for ($i = 0; $i < $amount; $i++) {
-                $instances[] = $this->createInstance($project, $image);
+                $instances[] = $this->createInstance($image);
             }
         }
 
         return $instances;
     }
 
-    public function terminate(Project $project, $amount = 1)
+    public function terminate(CloudInstanceInterface $instance)
     {
-        $removed = array();
-        $instances = $project->getInstances();
-
-        if ($amount > $instances->count()) {
-            $amount = $instances->count();
-        }
-        
-        for ($i = 0; $i < $amount; $i++) {
-            $instance = $instances->current();
-
-            if ($instance) {
-                if ($this->terminateInstance($instance)) {
-                    $removed[] = $instance;
-                }
-            }
-
-            $instances->next();
-        }
-
-        return $removed;
+        return $this->terminateInstance($instance);
     }
 
-    public function scale(Project $project, $amount = 1)
+    public function scale($amount = 1)
     {
         //TODO
     }
